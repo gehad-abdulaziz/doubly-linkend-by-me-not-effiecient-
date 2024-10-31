@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1730379583 source:c:\users\gehad\documents\second year\ds\codes\doublylist\main.c
+	<stdio.h>
+	"doubly.h"
+
+1730379583 c:\users\gehad\documents\second year\ds\codes\doublylist\doubly.h
+
+1730379591 source:c:\users\gehad\documents\second year\ds\codes\doublylist\doubly.c
+	<stdio.h>
+	<stdlib.h>
+	"doubly.h"
+
