@@ -23,7 +23,7 @@ void Insert(Linkedlist * lq ,LinkedType e , int pos)
     temp->prev=NULL;
     if(pos==0)
     {
-        temp->prev=lq->head;
+        temp->prev=NULL;
         temp->next=lq->head;
         lq->head=temp;
     }
@@ -46,10 +46,9 @@ void Retrieve(Linkedlist * lq ,LinkedType *e , int pos )
     {
         *e=lq->head->element;
         q=lq->head;
-        lq->head=lq->head->next;
+        lq->head=q->next;
+        lq->head->prev=NULL;
         free(q);
-        if(lq->head)
-            lq->head->prev=lq->head;
     }
     else
     {
@@ -58,8 +57,8 @@ void Retrieve(Linkedlist * lq ,LinkedType *e , int pos )
         *e=q->next->element;
         temp=q->next;
         q->next=q->next->next;
-        if(!q->next->next)
-           q->next->next->prev=q;
+        if(q->next)
+           q->next->prev=temp->prev;
         free(temp);
     }
     lq->size--;
@@ -100,7 +99,8 @@ void ReverseTraverseList(Linkedlist * lq , void (*pf)(LinkedType ))
     while (q&& q->next != NULL) {
         q = q->next;
     }
-    while(q>=lq->head)
+    int i=lq->size;
+    while(i--)
     {
         (*pf)(q->element);
         q=q->prev;
