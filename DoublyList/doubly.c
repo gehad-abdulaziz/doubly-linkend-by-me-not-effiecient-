@@ -85,13 +85,25 @@ int ListSize(Linkedlist * lq)
 {
     return lq->size;
 }
-void TraverseList(Linkedlist * lq , void (*pf)(LinkedType *))
+void TraverseList(Linkedlist * lq , void (*pf)(LinkedType))
 {
     Node *q=lq->head;
     while(q)
     {
-        (*pf)(&q->element);
+        (*pf)(q->element);
         q=q->next;
+    }
+}
+void ReverseTraverseList(Linkedlist * lq , void (*pf)(LinkedType ))
+{
+    Node *q = lq->head;
+    while (q&& q->next != NULL) {
+        q = q->next;
+    }
+    while(q>=lq->head)
+    {
+        (*pf)(q->element);
+        q=q->prev;
     }
 }
 void ClearList(Linkedlist * lq)
