@@ -18,5 +18,6 @@ void Insert(Linkedlist * lq ,LinkedType e , int pos);
 void Retrieve(Linkedlist * lq ,LinkedType *e , int pos );
 int Getindex(Linkedlist * lq  , int pos );
 int ListSize(Linkedlist * lq);
-void TraverseList(Linkedlist * lq , void (*pf)(LinkedType *));
+void TraverseList(Linkedlist * lq , void (*pf)(LinkedType ));
 void ClearList(Linkedlist * lq);
+void ReverseTraverseList (Linkedlist * lq , void (*pf)(LinkedType));
